@@ -29,6 +29,33 @@ const Ex1 = () => {
         const newColors = [...colors, 'yellow'];
         setColors(newColors);
     }
+
+    // Example-5
+    const [user, seUser] = useState({
+        name: 'John Doe',
+        age: 30,
+        email: 'john.doe@example.com'
+    });
+    const updateUser = () => {
+        seUser({...user, name: 'Jane Doe', age: 25, email: 'jane.doe@example.com' });
+    }
+
+    // Example-6
+    const [products, setProducts] = useState([
+        { id: 1, name: 'Product 1', price: 100 },
+        { id: 2, name: 'Product 2', price: 200 },
+        { id: 3, name: 'Product 3', price: 300 }
+    ]);
+    const addProduct = () => {
+        const newProduct = { id: products.length + 1, name: 'New Product', price: 400 };
+        setProducts([...products, newProduct]);
+    }
+
+    // Example-7
+    const [inputValue, setInputValue] = useState("React Hook");
+    const handleChange = (e) => {
+        setInputValue(e.target.value);
+    }
   return (
     <Fragment>
         <div className="container my-3">
@@ -96,6 +123,53 @@ const Ex1 = () => {
                             }
                         </p>
                         <button className="btn btn-outline-success" onClick={addColor}>Colors</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="container my-3">
+            <div className="row">
+                <div className="col">
+                    <div className="lead p-3 border rounded">
+                        <h3>Example - 5</h3>
+                        {/* <p>{user}</p>
+                        <p>{...user}</p> */}
+                        <p><b>User Name = </b>{user.name}</p>
+                        <p><b>User Age = </b>{user.age}</p>
+                        <p><b>User Email = </b>{user.email}</p>
+                        <button className="btn btn-outline-success" onClick={updateUser}>Update User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="container my-3">
+            <div className="row">
+                <div className="col">
+                    <div className="lead p-3 border rounded">
+                        <h3>Example - 6</h3>
+                        {
+                            products.map(product => {
+                                return (
+                                    <div key={product.id} className='my-3'>
+                                        <h4>{product.name}</h4>
+                                        <p><b>Price = </b>{product.price}</p>
+                                        <hr />
+                                    </div>
+                                )
+                            })
+                        }
+                        <button className="btn btn-outline-success" onClick={addProduct}>Add Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="container my-3">
+            <div className="row">
+                <div className="col">
+                    <div className="lead p-3 border rounded">
+                        <h3>Example - 7</h3>
+                        <input type="text" name="name" id="name" className="form-control" placeholder='Enter Your Name..!' value={inputValue} onChange={handleChange}/>
+                        <p><b>Input Value = </b>{inputValue}</p>
                     </div>
                 </div>
             </div>
