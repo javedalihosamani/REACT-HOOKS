@@ -3,6 +3,7 @@ import Ex1 from "./components/Ex1";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Ex2 from "./components/Ex2";
+import Ex3 from "./components/Ex3";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path={`/`} element={<Ex1 />} />
         <Route path={`/ex1`} element={<Ex1 />} />
         <Route path={`/ex2`} element={<Ex2 />} />
+        <Route path={`/ex3`} element={<Ex3 />} />
       </Routes>
       <Footer />
     </BrowserRouter>
