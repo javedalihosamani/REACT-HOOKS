@@ -33,15 +33,16 @@ const Ex3 = () => {
          .catch(err => console.error('Error:', err));
     }
     useEffect(() => {
+        document.title = "Posts Store";
         getPosts();
 
-        const totalPages = Math.ceil(posts.length / postsPerPage);
+        const totalPages = Math.ceil(posts.length / postsPerPage); // 100(No of Data) / 9 = 11.11(result) => Math.ceil(11.11) = 12(It takes highest number )
         setTotalPages(totalPages);
 
-        const indexOfLastPost = currentPage + postsPerPage;
+        const indexOfLastPost = currentPage + postsPerPage; // 9
 
-        const currentItem = posts.slice(currentPage, indexOfLastPost);
-        setCurrentPostPerPage(currentItem);
+        const currentItem = posts.slice(currentPage, indexOfLastPost); // 0-9 Index of Posts data
+        setCurrentPostPerPage(currentItem); // Slice data inserted into the state
 
     }, [posts]);
 
