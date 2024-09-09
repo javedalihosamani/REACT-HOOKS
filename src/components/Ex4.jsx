@@ -32,7 +32,7 @@ const Ex4 = (props) => {
 
     setProductsItemPerPage(products.slice(currentPage, indexOfLastProduct));
     
-  }, [products]);
+  }, [products, productsItemPerPage]);
 
   const handler = (e) => {
     setCurrentPage(Number(e.selected * paginationCount));
