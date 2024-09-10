@@ -13,7 +13,7 @@ const Ex7 = () => {
 
     const memoizedIncrementAge = useCallback(()=>{
         return userAge;
-    }, [age]);
+    }, [userAge]);
     
   return (
     <div className="container my-5">
